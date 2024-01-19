@@ -4,6 +4,7 @@ pipeline {
         //be sure to replace "bhavukm" with your own Docker Hub username
         DOCKER_IMAGE_NAME = "suprajasuresh18/train-schedule"
     }
+    stages {
     stage('Gradle Build') {
     if (isUnix()) {
         sh './gradlew clean build'
@@ -11,6 +12,7 @@ pipeline {
         bat 'gradlew.bat clean build'
     }
 }
+    }
     stages {
         stage('Build') {
             steps {
